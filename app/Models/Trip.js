@@ -5,10 +5,10 @@ export class Trip {
   constructor(data) {
     this.tripId = data.tripId || generateId()
     this.tripName = data.tripName
-    this.tripColor = data.tripColor
+    // this.tripColor = data.tripColor
 
-    if (!this.tripName || !this.tripColor)
-      throw new Error("Each trip needs a name and a color before it can be created");
+    // if (!this.tripName || !this.tripColor)
+    //   throw new Error("Each trip needs a name and a color before it can be created");
   }
 
   get Reservations() {
@@ -20,35 +20,32 @@ export class Trip {
 
   get Template() {
 
-    let chosenColor = 'bg-'
-    switch (this.tripColor.toLowerCase()) {
-      case 'red':
-        chosenColor += 'danger'
-        break
-      case 'grey':
-        chosenColor += 'secondary'
-        break
-      case 'yellow':
-        chosenColor += 'warning'
-        break
-      case 'pink':
-        chosenColor += 'info'
-        break
-      case 'green':
-        chosenColor += 'success'
-        break
-    }
+    // let chosenColor = 'bg-'
+    // switch (this.tripColor.toLowerCase()) {
+    //   case 'red':
+    //     chosenColor += 'danger'
+    //     break
+    //   case 'grey':
+    //     chosenColor += 'secondary'
+    //     break
+    //   case 'yellow':
+    //     chosenColor += 'warning'
+    //     break
+    //   case 'pink':
+    //     chosenColor += 'info'
+    //     break
+    //   case 'green':
+    //     chosenColor += 'success'
+    //     break
+    // }
 
 
     return /*html*/`
-                <div class="col-3 p-0" id="${this.tripId}">
+                <div class="col-12 p-0" id="${this.tripId}">
                   <div class="">
-                    <div><span class="mdi mdi-close d-flex justify-content-end ${chosenColor} p-2" onclick="app.tripsController.remove('${this.tripId}')"></span></div>
+                    <div><span class="mdi mdi-close d-flex justify-content-end p-2" onclick="app.tripsController.remove('${this.tripId}')"></span></div>
                     <div>
-                      <h3 class="card-title ${chosenColor} text-center m-0 p-0">${this.tripName}</h3>
-                    </div>
-                    <div>
-                      <h5 class="text-center ${chosenColor} text-light p-2 m=0" id="statistics">active/total</h5>
+                      <h3 class="card-title text-center m-0 p-0">${this.tripName}</h3>
                     </div>
                   </div>
                   <div class="">

@@ -22,8 +22,8 @@ export class Reservation {
 
     return /*html*/`
           <li>
-            <span><input  type="checkbox" class="p-1"} onChange="app.reservationController.reservationChecked(${this.reservationId})"> ${this.reservationName}</span>
-            <span class="mdi mdi-trash-can-outline text-danger" onclick="app.reservationsController.remove('${this.reservationId}')"></span>
+            <span> ${this.reservationName}</span>
+            <span class="text-danger" onclick="app.reservationsController.remove('${this.reservationId}')"> <i class="mdi mdi-trash-can-outline"></span>
           </li>
     `
 
