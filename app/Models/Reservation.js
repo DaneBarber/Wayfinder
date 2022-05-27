@@ -21,7 +21,7 @@ export class Reservation {
   get Template() {
 
     return /*html*/`
-          <div class="d-flex justify-content-evenly">
+          <div class="d-flex justify-content-evenly bg-primary rounded shadow my-3 p-2">
             <div class="col-2"> ${this.type}</div>
             <div class="col-2"> ${this.reservationName}</div>
             <div class="col-2"> ${this.confirmationNumber}</div>

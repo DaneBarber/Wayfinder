@@ -45,12 +45,12 @@ export class Trip {
                   <div class="">
                     <div><span class="mdi mdi-close d-flex justify-content-end p-2" onclick="app.tripsController.remove('${this.tripId}')"></span></div>
                     <div>
-                      <h3 class="card-title text-center m-0 p-0">${this.tripName}</h3>
+                      <h3 class="card-title text-center m-2 p-0">${this.tripName}</h3>
                     </div>
                   </div>
                   <div class="">
                     <div class="container bg-white">
-                      <div id="reservations-trip p-3">
+                      <div id="reservations-trip my-2 p-3">
                           ${this.Reservations}
                       </div>
                       <div class="addings align-items-end">
