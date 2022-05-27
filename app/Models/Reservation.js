@@ -21,10 +21,14 @@ export class Reservation {
   get Template() {
 
     return /*html*/`
-          <li>
-            <span> ${this.reservationName}</span>
-            <span class="text-danger" onclick="app.reservationsController.remove('${this.reservationId}')"> <i class="mdi mdi-trash-can-outline"></span>
-          </li>
+          <div class="d-flex justify-content-evenly">
+            <div class="col-2"> ${this.type}</div>
+            <div class="col-2"> ${this.reservationName}</div>
+            <div class="col-2"> ${this.confirmationNumber}</div>
+            <div class="col-3"> ${this.address}</div>
+            <div class="col-2"> ${this.cost}</div>
+            <div class="text-dark" onclick="app.reservationsController.removeReservation('${this.reservationId}')"> <i class="">🗑</div>
+          </div>
     `
 
   }

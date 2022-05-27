@@ -51,9 +51,7 @@ export class Trip {
                   <div class="">
                     <div class="container bg-white">
                       <div id="reservations-trip p-3">
-                        <ul class="no-bullets">
                           ${this.Reservations}
-                        </ul>
                       </div>
                       <div class="addings align-items-end">
                         <form class="d-flex align-items-center" onsubmit="app.reservationsController.add('${this.tripId}')">
