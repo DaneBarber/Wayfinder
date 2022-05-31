@@ -26,26 +26,20 @@ export class TripsController {
   createTrip() {
     window.event.preventDefault()
     console.log("Trip");
-    try {
-      /** @type {HTMLFormElement} */
-      // @ts-ignore
-      const form = window.event.target
-      console.log("tripName")
-      debugger
-      const tripData = {
-        name: form.tripName.value,
-      }
-
-      tripsService.addTrip(tripData)
-
-    } catch (error) {
-      console.error("[TRIP FORM ERROR]", error)
-      Pop.toast(error.message, "error")
+    /** @type {HTMLFormElement} */
+    // @ts-ignore
+    const form = window.event.target
+    console.log("tripName")
+    debugger
+    const tripData = {
+      name: form.tripName.value,
     }
+
+    tripsService.addTrip(tripData)
+
   }
-  async deleteTrip(id) {
-    //need to confirm delete here
-    if (await Pop.confirm()) {
+  removeTrip(tripId) {
+    if (Pop.confirm()) {
       Pop.toast('Deleted', 'success')
     }
   }

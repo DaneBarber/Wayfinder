@@ -23,30 +23,24 @@ export class ReservationsController {
     // debugger
     window.event.preventDefault()
 
-    try {
-      /**@type {HTMLFormElement} */
-      //ts-ignore
-      const form = window.event.target
-      const reservationData = {
+    /**@type {HTMLFormElement} */
+    //ts-ignore
+    const form = window.event.target
+    const reservationData = {
 
-        type: form.type.value,
-        name: form.name,
-        confirm: form.confirm.value,
-        address: form.address.value,
-        date: form.date.value,
-        cost: form.cost.value,
-        tripId: form.tripID.value
-      }
-      reservationsService.addReservation(reservationData)
-      console.log(reservationData)
+      type: form.type.value,
+      name: form.name,
+      confirm: form.confirm.value,
+      address: form.address.value,
+      date: form.date.value,
+      cost: form.cost.value,
+      tripId: form.tripID.value
     }
-    catch (error) {
-      console.error('[Reservation form error]', error)
-      Pop.toast(error.message, 'error')
-    }
+    reservationsService.addReservation(reservationData)
+    console.log(reservationData)
   }
+}
 
-  deleteReservation(id) {
-    Pop.toast('Deleted', "success")
-  }
+function removeReservation(id) {
+  Pop.toast('Deleted', "success")
 }

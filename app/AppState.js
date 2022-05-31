@@ -28,6 +28,24 @@ class AppState extends EventEmitter {
       date: '5/23/22',
       cost: '587',
       tripId: "62957cc4fe8598247ac57726"
+    }),
+    new Reservation({
+      type: '✈️',
+      name: 'UA 1238',
+      confirm: 'JKE123VDA',
+      address: '3201 W Airport Way, Boise, ID',
+      date: '5/24/22',
+      cost: '587',
+      tripId: "62957cc42d73efcb3c1f5ac6"
+    }),
+    new Reservation({
+      type: '✈️',
+      name: 'UA 1238',
+      confirm: 'JKE123VDA',
+      address: '3201 W Airport Way, Boise, ID',
+      date: '5/25/22',
+      cost: '587',
+      tripId: "62957cc42d73efcb3c1f5ac6"
     })
   ]
 }
