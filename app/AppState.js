@@ -6,46 +6,50 @@ import { Trip } from "./Models/Trip.js"
 class AppState extends EventEmitter {
   /** @type {import('./Models/Trip').Trip[]} */
   trips = [
-    new Trip({ name: 'Disneyland', id: '62957cc4fe8598247ac57726' }),
-    new Trip({ name: 'Yum', id: '62957cc42d73efcb3c1f5ac6' }),
+    new Trip({ tripName: 'Disneyland', tripId: '62960d4a00adcbe0a50286b7', tripNotes: "Hi" }),
+    // new Trip({ tripName: 'Yum', id: '62957cc42d73efcb3c1f5ac6', tripNotes: "Greetings" }),
   ]
   /** @type {import('./Models/Reservation').Reservation[]} */
   reservations = [
     new Reservation({
       type: '✈️',
-      name: 'UA 1234',
-      confirm: 'JKEVDA',
+      reservationName: 'UA 1234',
+      reservationId: "abc123",
+      confirmationNumber: 'JKEVDA',
       address: '3201 W Airport Way, Boise, ID',
-      date: '5/22/22',
+      date: '2022-05-22',
       cost: '587',
-      tripId: "62957cc4fe8598247ac57726"
+      tripId: "62960d4a00adcbe0a50286b7"
     }),
     new Reservation({
       type: '✈️',
-      name: 'UA 1234',
-      confirm: 'JKEVDA',
+      reservationName: 'UA 1234',
+      reservationId: "abc1234",
+      confirmationNumber: 'JKEVDA',
       address: '3201 W Airport Way, Boise, ID',
-      date: '5/23/22',
+      date: '2022-05-23',
       cost: '587',
-      tripId: "62957cc4fe8598247ac57726"
+      tripId: "62960d4a00adcbe0a50286b7"
     }),
     new Reservation({
       type: '✈️',
-      name: 'UA 1238',
-      confirm: 'JKE123VDA',
+      reservationName: 'UA 1238',
+      reservationId: "abc12345",
+      confirmationNumber: 'JKE123VDA',
       address: '3201 W Airport Way, Boise, ID',
-      date: '5/24/22',
-      cost: '587',
-      tripId: "62957cc42d73efcb3c1f5ac6"
+      date: '2022-05-24',
+      cost: '588',
+      tripId: "62960d4a00adcbe0a50286b7"
     }),
     new Reservation({
       type: '✈️',
-      name: 'UA 1238',
-      confirm: 'JKE123VDA',
+      reservationName: 'UA 1238',
+      reservationId: "abc123456",
+      confirmationNumber: 'JKE123VDA',
       address: '3201 W Airport Way, Boise, ID',
-      date: '5/25/22',
-      cost: '587',
-      tripId: "62957cc42d73efcb3c1f5ac6"
+      date: '2022-05-25',
+      cost: '588',
+      tripId: "62960d4a00adcbe0a50286b7"
     })
   ]
 }

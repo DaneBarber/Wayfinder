@@ -2,7 +2,7 @@ import { ProxyState } from "../AppState.js"
 import { tripsService } from "../Services/TripsService.js"
 import { loadState, saveState } from "../Utils/LocalStorage.js"
 import { Pop } from "../Utils/Pop.js"
-function _drawTrips(trip) {
+function _drawTrips() {
   // debugger
   let trips = ProxyState.trips
   let tripsTemplate = ''
@@ -23,25 +23,35 @@ export class TripsController {
     loadState()
     _drawTrips()
   }
-  createTrip() {
+  addTrip() {
     window.event.preventDefault()
     console.log("Trip");
     /** @type {HTMLFormElement} */
     // @ts-ignore
     const form = window.event.target
-    console.log("tripName")
-    debugger
+    console.log("tripName", form.tripName.value)
+    // debugger
     const tripData = {
       name: form.tripName.value,
     }
-
+    console.log(tripData)
     tripsService.addTrip(tripData)
 
+
   }
-  removeTrip(tripId) {
-    if (Pop.confirm()) {
+  async removeTrip(tripId) {
+    if (await Pop.confirm('Do you really want to delete your trip?')) {
       Pop.toast('Deleted', 'success')
+      tripsService.removeTrip(tripId)
     }
+  }
+
+
+  updateTrip(id) {
+    let textarea = window.event.target
+    console.log(textarea.value, id);
+    tripsService.updateTrip(textarea.value, id)
+    Pop.toast('party updated!')
   }
 
 }

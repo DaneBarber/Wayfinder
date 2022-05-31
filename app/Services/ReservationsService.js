@@ -3,7 +3,8 @@ import { Reservation } from "../Models/Reservation.js";
 
 class ReservationsService {
   addReservation(reservationData) {
-    const reservation = new Reservation(reservationData.reservationName)
+    console.log("reservationService AddRes", reservationData)
+    const reservation = new Reservation(reservationData)
     ProxyState.reservations = [...ProxyState.reservations, reservation]
   }
   removeReservation(reservationId) {
