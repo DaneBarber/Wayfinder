@@ -12,6 +12,7 @@ export class Trip {
   get tripTemplate() {
     return /* html */`
     <div class="bg-light text-dark col text-center">
+      <h2>${this.tripName}</h2>
       <div class=" row" >
         <h4 class="col-1">Type</h4>
         <h4 class="col-2">Name</h4>
@@ -22,6 +23,7 @@ export class Trip {
         <h4 class="col-1" onclick="app.tripsController.removeTrip('${this.tripId}')"><i class="mdi mdi-delete"></h4>
       </div>
       <div class="reservation m-3 text-dark" id="reservation">
+        ${this.Reservations}
       </div>
       <div>
         <form onsubmit="app.reservationsController.addReservation()" id="new-reservation">
