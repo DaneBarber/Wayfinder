@@ -7,12 +7,12 @@ export function saveState() {
     trips: ProxyState.trips,
     reservations: ProxyState.reservations,
   }
-  window.localStorage.setItem('wayfinder', JSON.stringify(data))
+  window.localStorage.setItem('wayFinderTrips', JSON.stringify(data))
 }
 
 
 export function loadState() {
-  let data = window.localStorage.getItem('wayfinder')
+  let data = window.localStorage.getItem('wayFinderTrips')
   if (data) {
     let obj = JSON.parse(data)
     ProxyState.trips = obj.trips.map(t => new Trip(t))

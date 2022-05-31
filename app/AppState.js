@@ -1,40 +1,33 @@
 import { Reservation } from "./Models/Reservation.js"
-import { Trip } from "./Models/Trip.js"
 import { EventEmitter } from "./Utils/EventEmitter.js"
 import { isValidProp } from "./Utils/isValidProp.js"
+import { Trip } from "./Models/Trip.js"
 
 class AppState extends EventEmitter {
-
-
   /** @type {import('./Models/Trip').Trip[]} */
   trips = [
-    new Trip({
-      tripId: "abc123",
-      tripName: "Disney"
-    })
+    new Trip({ name: 'Disneyland', id: '62957cc4fe8598247ac57726' }),
+    new Trip({ name: 'Yum', id: '62957cc42d73efcb3c1f5ac6' }),
   ]
-
   /** @type {import('./Models/Reservation').Reservation[]} */
   reservations = [
     new Reservation({
-      reservationId: "123abc",
-      tripId: "abc123",
-      type: "flight",
-      reservationName: "UA1234",
-      confirmationNumber: "8675309",
-      address: "3201 W Airport Way, Boise, ID",
-      date: "4/22/22",
-      cost: 492
+      type: '✈️',
+      name: 'UA 1234',
+      confirm: 'JKEVDA',
+      address: '3201 W Airport Way, Boise, ID',
+      date: '5/22/22',
+      cost: '587',
+      tripId: "62957cc4fe8598247ac57726"
     }),
     new Reservation({
-      reservationId: "123def",
-      tripId: "abc123",
-      type: "hotel",
-      reservationName: "ht1234",
-      confirmationNumber: "8675309-2",
-      address: "3201 W Airport Way, Boise, ID",
-      date: "4/23/22",
-      cost: 2500
+      type: '✈️',
+      name: 'UA 1234',
+      confirm: 'JKEVDA',
+      address: '3201 W Airport Way, Boise, ID',
+      date: '5/23/22',
+      cost: '587',
+      tripId: "62957cc4fe8598247ac57726"
     })
   ]
 }

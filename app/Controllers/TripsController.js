@@ -1,37 +1,52 @@
-import { ProxyState } from "../AppState.js";
-import { tripsService } from "../Services/TripsService.js";
-import { Pop } from "../Utils/Pop.js";
-
-//private
-function _draw() {
-  let trips = ProxyState.trips;
-  let template = ''
-  trips.forEach(t => template += t.Template)
-  document.getElementById("app").innerHTML = /*html*/`
-  <div class="my-3">
-    <button class="btn btn-secondary text-white elevation-2" onclick="app.reservationsController.addReservation()">Add Reservation</button>  
-    <div class="trips d-flex flex-wrap my-3">
-      ${template}
-    </div>
-  </div>
-  `
+import { ProxyState } from "../AppState.js"
+import { tripsService } from "../Services/TripsService.js"
+import { loadState, saveState } from "../Utils/LocalStorage.js"
+import { Pop } from "../Utils/Pop.js"
+function _drawTrips(trip) {
+  // debugger
+  let trips = ProxyState.trips
+  let tripsTemplate = ''
+  trips.forEach(trip => tripsTemplate += trip.tripTemplate)
+  document.getElementById("trips").innerHTML = `<div>
+  ${tripsTemplate}
+  </div>`
 }
 
-// public
 export class TripsController {
+
   constructor() {
-    ProxyState.on("trips", _draw);
-    _draw()
-  }
+    ProxyState.on("trips", _drawTrips);
+    ProxyState.on("reservations", _drawTrips)
+    ProxyState.on("trips", saveState)
+    ProxyState.on("reservations", saveState)
 
-  addTrip() {
-    tripsService.addTrip()
+    loadState()
+    _drawTrips()
   }
+  createTrip() {
+    window.event.preventDefault()
+    console.log("Trip");
+    try {
+      /** @type {HTMLFormElement} */
+      // @ts-ignore
+      const form = window.event.target
+      console.log("tripName")
+      debugger
+      const tripData = {
+        name: form.tripName.value,
+      }
 
-  async removeTrip(tripId) {
-    const yes = await Pop.confirm('Remove Trip')
-    if (yes) {
-      tripsService.removeTrip(tripId)
+      tripsService.addTrip(tripData)
+
+    } catch (error) {
+      console.error("[TRIP FORM ERROR]", error)
+      Pop.toast(error.message, "error")
+    }
+  }
+  async deleteTrip(id) {
+    //need to confirm delete here
+    if (await Pop.confirm()) {
+      Pop.toast('Deleted', 'success')
     }
   }
 

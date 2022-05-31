@@ -1,34 +1,52 @@
-import { ProxyState } from "../AppState.js";
-import { reservationsService } from "../Services/ReservationsService.js";
-import { Pop } from "../Utils/Pop.js";
+import { reservationsService } from "../Services/ReservationsService.js"
+import { ProxyState } from "../AppState.js"
+import { Pop } from "../Utils/Pop.js"
 
-//private
-// function _draw() {
-//   let reservations = ProxyState.reservations;
-//   let template = ''
-//   reservations.forEach(t => template += t.Template)
-//   document.getElementById("app").innerHTML = /*html*/`
-//   <div class="my-3">
-//     <button class="btn btn-secondary text-white elevation-2" onclick="app.reservationsController.addReservation()">Add Reservation</button>  
-//     <div class="reservations d-flex flex-wrap my-3">
-//       ${template}
-//     </div>
-//   </div>
-//   `
-// }
+function _drawReservations() {
+  // debugger
+  let reservations = ProxyState.reservations
+  let reservationsTemplate = ''
+  reservations.forEach(r => reservationsTemplate += r.Template)
+  document.getElementById("reservation").innerHTML = `<div>
+  ${reservationsTemplate}
+  </div>`
+}
 
-// public
 export class ReservationsController {
 
-  addReservation(tripId) {
-    reservationsService.addReservation(tripId)
+  constructor() {
+    ProxyState.on("reservations", _drawReservations);
+    _drawReservations()
   }
+  // Adds a new reservation, but does not change the data, logs the new data
+  addReservation(tripID) {
+    // debugger
+    window.event.preventDefault()
 
-  async removeReservation(reservationId) {
-    const yes = await Pop.confirm('Remove Reservation?')
-    if (yes) {
-      reservationsService.removeReservation(reservationId)
+    try {
+      /**@type {HTMLFormElement} */
+      //ts-ignore
+      const form = window.event.target
+      const reservationData = {
+
+        type: form.type.value,
+        name: form.name,
+        confirm: form.confirm.value,
+        address: form.address.value,
+        date: form.date.value,
+        cost: form.cost.value,
+        tripId: form.tripID.value
+      }
+      reservationsService.addReservation(reservationData)
+      console.log(reservationData)
+    }
+    catch (error) {
+      console.error('[Reservation form error]', error)
+      Pop.toast(error.message, 'error')
     }
   }
 
+  deleteReservation(id) {
+    Pop.toast('Deleted', "success")
+  }
 }

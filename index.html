@@ -6,42 +6,95 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <link rel="icon" href="https://bcw.blob.core.windows.net/public/img/9977764104160066">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
-    integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-0evHe/X+R7YkIZDRvuzKMRqM+OrBnVFBL6DOitfPri4tjfHxaWutUpFmBp4vmVor" crossorigin="anonymous">
   <link rel="stylesheet" href="assets/style/main.css">
   <link rel="stylesheet" href="assets/style/style.css">
-  <title>Wayfinder</title>
+  <link rel="stylesheet" href="//cdn.materialdesignicons.com/5.4.55/css/materialdesignicons.min.css">
+  <title>WayFinder</title>
 </head>
+
 
 <body>
   <header>
-    <nav class="navbar navbar-dark navbar-expand bg-dark text-light no-select">
+    <nav class="navbar navbar-dark navbar-expand bg-primary text-light no-select">
       <a class="navbar-brand ms-3" href="#">
-        <img src="https://codeworks.blob.core.windows.net/public/assets/img/cw-mark.png" height="45" alt=""
-          loading="lazy">
-        <span class="ms-2">Wayfinder</span>
+        <i class="mdi mdi-sail-boat"></i>
+        <span class="ms-2">WayFinder</span>
       </a>
     </nav>
   </header>
-  <main>
+  <main class="bg-dark text-light">
     <div class="container-fluid">
-      <div class="row" id="app">
-
+      <div class="row">
+        <div class="col-12">
+          <ul class="nav nav-tabs text-light m-4">
+            <li class="nav-item">
+              <a class="nav-link active" aria-current="page" href="#">Disneyland</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Las Vegas</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#">Spring Break</a>
+            </li>
+            <li class="nav-item">
+              <div id="vacation" class="col-1 selectable" data-bs-toggle="modal" data-bs-target="#add-vacation-modal">
+                <i class="fs-3 mdi mdi-plus"></i>
+              </div>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <div class="row" id="trips">
+        <!-- inject form here -->
       </div>
     </div>
   </main>
-  <footer class="bg-dark text-light">
-    <div class="text-center no-select">
 
+  <div class="modal fade" id="add-reservation-modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="add-listing-modal" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="add-listing-modal-label">Notes</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="form-floating">
+          <textarea class="form-control" placeholder="Notes..." id="floatingTextarea"></textarea>
+          <label for="floatingTextarea"></label>
+        </div>
+      </div>
     </div>
-  </footer>
+  </div>
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
-    integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+  <form onsubmit="app.tripsController.createTrip()">
+    <div id="add-vacation-modal" class="modal text-center">
+      <div class="modal-dialog modal-dialog-centered ">
+        <div class="modal-content ">
+          <div class="modal-header justify-content-center">
+            <h5 class="modal-title text-dark">New Vacation</h5>
+          </div>
+          <div class="modal-body">
+            <p>Title of your vacation</p>
+            <input type="text" class="form-control" name="tripName" id="tripName" placeholder="Title..." required>
+          </div>
+          <div class="modal-footer">
+            <button type="submit" class="btn btn-primary" type="submit">OK</button>
+            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </form>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-pprn3073KE6tl6bjs2QrFaJGz5/SUsLqktiwsUTF55Jfv3qYSDhgCecCxMW52nD2"
     crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.3.10/dist/sweetalert2.all.min.js"
     integrity="sha256-hw7v8jZF/rFEdx1ZHepT4D73AFTHLu/P9kEyrNesRyc=" crossorigin="anonymous"></script>
   <script src="app/main.js" type="module"></script>
 </body>
+
 
 </html>
