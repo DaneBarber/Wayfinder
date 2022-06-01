@@ -26,38 +26,39 @@ export class Trip {
         ${this.Reservations}
       </div>
       <div>
-        <form onsubmit="app.reservationsController.addReservation()" id="new-reservation">
+      // TODO finish create reservation logic with trip id
+        <form onsubmit="app.reservationsController.addReservation('${this.tripId}')" id="new-reservation">
           <div class="form m-3 row">
             <div class="col-sm-1">
               <label class=" visually-hidden" for="inlineFormCustomSelect">Type</label>
-              <select class="custom-select " id="type">
+              <select class="custom-select " required id="type">
                 <option selected>Type</option>
-                <option value="1">✈️</option>
-                <option value="2">🏨</option>
-                <option value="3">🎡</option>
-                <option value="4">🚗</option>
+                <option value="✈️">✈️</option>
+                <option value="🏨">🏨</option>
+                <option value="🎡">🎡</option>
+                <option value="🚗">🚗</option>
               </select>
             </div>
             <div class="col-sm-2">
               <label class="visually-hidden" for="reservationName">Name</label>
-              <input type="text" class="form-control" id="reservationName" placeholder="Name">
+              <input type="text" class="form-control" required id="reservationName" placeholder="Name">
             </div>
             <div class="col-sm-3">
               <label class="visually-hidden" for="confirmationNumber">Confirmation Number</label>
-              <input type="text" class="form-control" id="confirmationNumber" placeholder="Confirmation Number">
+              <input type="text" class="form-control" required id="confirmationNumber" placeholder="Confirmation Number">
             </div>
             <div class="col-sm-3">
               <label class="visually-hidden" for="address">Address</label>
-              <input type="text" class="form-control" id="address" placeholder="Address">
+              <input type="text" class="form-control" required id="address" placeholder="Address">
             </div>
             <div class="col-sm-1">
               <label class="visually-hidden" for="Date">Date</label>
-              <input type="date" class="form-control" id="date">
+              <input type="date" class="form-control" required id="date">
             </div>
             <div class="col-sm-1">
               <label class="visually-hidden" for="cost">Cost</label>
-              <input type="number" class="form-control" id="cost" placeholder="Cost">
-               <input type="hidden" id="tripId" name="tripId" value="${this.tripId}">
+              <input type="number" class="form-control" id="cost" required placeholder="Cost">
+              <input type="hidden" id="tripId" required name="tripId" value="${this.tripId}">
             </div>
           </div>
           <div class="col-12 d-flex ">
@@ -65,13 +66,13 @@ export class Trip {
           </div>
         </form>
       </div>
-      <div class="mb-3 col-md-5">
-        <label for="" class="form-label">Trip Notes</label>
-        <textarea onblur="app.tripsController.updateTrip('${this.tripId}')" name="tripNotes" id="tripNotes" class="form-control" aria-describedby="helpId" value="${this.tripNotes}"
-          placeholder=""></textarea>
-
-      </div>
-      <div class="mb-3 col-md-5 align-self-end"><span>"$${this.Total}"</span>
+      <div class="justify-content-between">
+        <div class="mb-3 col-md-6">
+          <label for="" class="form-label">Trip Notes</label>
+          <textarea onblur="app.tripsController.updateTrip('${this.tripId}')" name="tripNotes" id="tripNotes" class="form-control" aria-describedby="helpId" value="${this.tripNotes}"
+            placeholder=""></textarea> 
+        </div>
+        <span class="mb-3 col-md-4 align-self-end">"$${this.Total}"</span>
       </div>
     </div>
     `

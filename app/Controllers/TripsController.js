@@ -32,9 +32,10 @@ export class TripsController {
     console.log("tripName", form.tripName.value)
     // debugger
     const tripData = {
-      name: form.tripName.value,
+      tripName: form.tripName.value,
     }
-    console.log(tripData)
+
+    console.log(tripData, "NEW TRI")
     tripsService.addTrip(tripData)
 
 
