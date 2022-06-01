@@ -26,13 +26,12 @@ export class Trip {
         ${this.Reservations}
       </div>
       <div>
-      // TODO finish create reservation logic with trip id
         <form onsubmit="app.reservationsController.addReservation('${this.tripId}')" id="new-reservation">
           <div class="form m-3 row">
             <div class="col-sm-1">
               <label class=" visually-hidden" for="inlineFormCustomSelect">Type</label>
               <select class="custom-select " required id="type">
-                <option selected>Type</option>
+                <option ></option>
                 <option value="✈️">✈️</option>
                 <option value="🏨">🏨</option>
                 <option value="🎡">🎡</option>
