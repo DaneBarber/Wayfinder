@@ -65,13 +65,15 @@ export class Trip {
           </div>
         </form>
       </div>
-      <div class="justify-content-between">
-        <div class="mb-3 col-md-6">
+      <div class="col-12 justify-content-between">
+        <div class="mb-3 col-md-4">
           <label for="" class="form-label">Trip Notes</label>
           <textarea onblur="app.tripsController.updateTrip('${this.tripNotes}','${this.tripId}')" name="tripNotes" id="tripNotes" class="form-control" aria-describedby="helpId" value="${this.tripNotes}"
             placeholder=""></textarea> 
         </div>
-        <span class="mb-3 col-md-4 align-self-end">"$${this.Total}"</span>
+        <div class=col-md-4>
+          <span class="mb-3 ">$${this.Total}</span>
+        </div>
       </div>
     </div>
     `
