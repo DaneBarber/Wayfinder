@@ -48,10 +48,10 @@ export class TripsController {
   }
 
 
-  updateTrip(id) {
+  updateTrip(tripNotes, id) {
     let textarea = window.event.target
-    console.log(textarea.value, id);
-    tripsService.updateTrip(textarea.value, id)
+    console.log(textarea, id);
+    tripsService.updateTrip(tripNotes, id)
     Pop.toast('party updated!')
   }
 

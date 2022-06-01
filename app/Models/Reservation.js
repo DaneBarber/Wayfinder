@@ -20,7 +20,7 @@ export class Reservation {
             <div id="address" class="col-3">${this.address}</div>
             <div id="date" class="col-2">${this.date.toDateString()}</div>
             <div id="cost" class="col-1">${this.cost}</div>
-            <div class="text-dark col-1" onclick="app.reservationsController.removeReservation('${this.reservationId}')"> <i class="">🗑</div>
+            <div class="text-dark col-1" onclick="app.reservationsController.removeReservation('${this.reservationId}')">🗑</div>
         </div>
         `
   }

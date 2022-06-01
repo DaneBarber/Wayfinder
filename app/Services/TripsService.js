@@ -17,7 +17,6 @@ class TripsService {
     let trip = ProxyState.trips.find(p => p.tripId == id)
     console.log('updating trip service', newText, trip);
     trip.tripNotes = newText
-    debugger
     ProxyState.trips = ProxyState.trips
   }
 }

@@ -19,7 +19,7 @@ export class ReservationsController {
     _drawReservations()
   }
   // Adds a new reservation, but does not change the data, logs the new data
-  addReservation() {
+  addReservation(tripId) {
     // debugger
     window.event.preventDefault()
     console.log("adding reservation")
@@ -34,7 +34,7 @@ export class ReservationsController {
       address: form.address.value,
       date: form.date.value,
       cost: form.cost.value,
-      tripId: form.tripId.value
+      tripId: tripId
     }
     reservationsService.addReservation(reservationData)
     console.log(reservationData)

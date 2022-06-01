@@ -69,7 +69,7 @@ export class Trip {
       <div class="justify-content-between">
         <div class="mb-3 col-md-6">
           <label for="" class="form-label">Trip Notes</label>
-          <textarea onblur="app.tripsController.updateTrip('${this.tripId}')" name="tripNotes" id="tripNotes" class="form-control" aria-describedby="helpId" value="${this.tripNotes}"
+          <textarea onblur="app.tripsController.updateTrip('${this.tripNotes}','${this.tripId}')" name="tripNotes" id="tripNotes" class="form-control" aria-describedby="helpId" value="${this.tripNotes}"
             placeholder=""></textarea> 
         </div>
         <span class="mb-3 col-md-4 align-self-end">"$${this.Total}"</span>
